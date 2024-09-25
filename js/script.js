@@ -41,9 +41,9 @@ function renderTaskList() {
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
     event.preventDefault();
-    let title = $("#taskName").val();
-    let description = $("#taskDescription").val();
-    let dueDate = $("#taskDueDate").val();
+    const title = $("#taskName").val();
+    const description = $("#taskDescription").val();
+    const dueDate = $("#taskDueDate").val();
 
     let task = {
         id: generateTaskId(),
@@ -56,7 +56,7 @@ function handleAddTask(event){
     taskList.push(task);
     localStorage.setItem("tasks", JSON.stringify(taskList));
 
-    let card = createTaskCard(task);
+    const card = createTaskCard(task);
     $("#to-do").append(card);
 
     card.draggable({
@@ -71,8 +71,8 @@ function handleAddTask(event){
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
 
-    let card = $(event.target).parent().parent();
-    let id = card.attr("id");
+    const card = $(event.target).parent().parent();
+    const id = card.attr("id");
     card.remove();
 
     taskList = taskList.filter(task => task.id != id);
